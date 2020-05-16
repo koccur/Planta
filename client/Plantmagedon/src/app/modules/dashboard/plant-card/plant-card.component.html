@@ -1,0 +1,28 @@
+<div class="plant-card">
+  <div class="left-side">
+    <div class="image-wrapper main-view">
+      <img [src]="plant.picture?plant.picture:defaultPlantPicture"/>
+    </div>
+  </div>
+  <div class="right-side">
+    <h4>{{plant.name}}</h4>
+    <div class="row">
+      <div class="image-wrapper icon">
+        <img [src]="waterIcon"/>
+        <h6>{{plant?.water?.lastActivity}}</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="image-wrapper icon">
+        <img [src]="sprayIcon"/>
+        <h6>{{plant?.water?.spray?.lastActivity}}</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="image-wrapper icon">
+        <img [src]="fertilizationIcon"/>
+        <h6>{{plant?.fertilization?.lastActivity}}</h6>
+      </div>
+    </div>
+  </div>
+</div>

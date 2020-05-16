@@ -1,0 +1,87 @@
+@import "variables.scss";
+
+.plant-view-wrapper {
+  padding: 1.25rem;
+}
+
+.image-wrapper.main-view {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid $mainColor;
+  margin: 0 auto;
+}
+
+.details-table .row {
+  width: 100%;
+  display: flex;
+  min-height: 3.75rem;
+  margin-bottom: 0.25rem;
+  border: 1px solid $mainColor;
+  padding: 0.25rem 0.5rem;
+  box-sizing: border-box;
+  flex-direction: column;
+
+  .top-part {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 4px;
+    .image-wrapper {
+      display: flex;
+      flex-direction: row;
+      margin-right:8px;
+    }
+    .title{
+      margin-right:8px;
+      min-width: 110px;
+      font-size: 20px;
+    }
+  }
+
+  .bottom-part {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4px;
+    align-items: center;
+
+    .image-wrapper {
+      margin-right: 20px;
+    }
+  }
+
+  .bottom-part {
+    display: flex;
+    flex-direction: row;
+    h6{
+      font-size: 15px;
+      margin-right:12px;
+      font-weight: 300;
+    }
+    span{
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .title{
+      margin-right:8px;
+      min-width: 110px;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+  &.notes{
+    flex-direction: row;
+    .title{
+      margin-right:8px;
+      min-width: 60px;
+      font-size: 20px;
+    }
+    .icon{
+      margin-left:8px;
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

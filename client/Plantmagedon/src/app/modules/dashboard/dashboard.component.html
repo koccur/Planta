@@ -1,0 +1,8 @@
+<ng-container  *ngIf="plants$|async as plants">
+  <app-plant-card *ngFor="let plant of plants" [plant]="plant" [routerLink]="'/dashboard/'+plant.id"></app-plant-card>
+</ng-container>
+<div class="button-container">
+
+  <button type="button" (click)="addPlant()"><img src="./assets/plus-button.svg"/></button>
+</div>
+

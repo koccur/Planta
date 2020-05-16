@@ -1,0 +1,75 @@
+<div class="plant-view-wrapper">
+  <div class="image-wrapper main-view">
+    <!--    wybór ikony/zrób zdjęcie?-->
+    <img [src]="selectedPlant.picture" (click)="changeIcon()"/>
+  </div>
+  <h2 class="text-align-center">{{selectedPlant.name}}</h2>
+  <div class="details-table">
+    <div class="row">
+      <div class="top-part">
+        <span class="title">{{'editPlant.water'|translate}}</span>
+        <div class="image-wrapper icon" *ngFor="let number of [].constructor(3)">
+          <img [src]="selectedPlant.water<=number?waterIcon:waterIconEmpty"/>
+        </div>
+      </div>
+      <div class="bottom-part">
+        <div class="image-wrapper icon">
+          <img [src]="timeIcon"/>
+        </div>
+        <h6>{{selectedPlant.water.lastActivity}}</h6> <span>{{'oncePerWeek'|translate}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="top-part">
+        <span class="title">{{'editPlant.spray'|translate}}</span>
+        <div class="image-wrapper icon">
+          <!--        spray icon empty?-->
+          <img [src]="sprayIcon" *ngFor="let number of [].constructor(1)" [ngClass]="{'active':selectedPlant.water.spray.frequency<=number}"/>
+        </div>
+      </div>
+      <div class="bottom-part">
+        <div class="image-wrapper icon">
+          <img [src]="timeIcon"/>
+        </div>
+        <h6>{{selectedPlant.water.spray.lastActivity}}</h6>  <span>{{'oncePerWeek'|translate}}</span>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="top-part">
+        <span class="title">{{'editPlant.fertilization'|translate}}</span>
+        <div class="image-wrapper icon">
+          <!--        fert icon empty?-->
+          <img [src]="fertilizationIcon" *ngFor="let number of [].constructor(1)"
+               [ngClass]="{'active':selectedPlant.fertilization<=number}"/>
+        </div>
+      </div>
+      <div class="bottom-part">
+        <div class="image-wrapper icon">
+          <img [src]="timeIcon"/>
+        </div>
+        <h6>{{selectedPlant.fertilization.lastActivity}}</h6><span>{{'oncePerWeek'|translate}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="top-part">
+        <span class="title">{{'editPlant.sunny'|translate}}</span>
+        <div class="image-wrapper icon">
+          <img [src]="sunnyIcon"/>
+        </div>
+        <!--      todo ogarnąć-->
+        <span>{{selectedPlant.place.sunnyLevel === 1 ? 'Słonecznie' : 'Niesłonecznie'}}</span>
+      </div>
+      <div class="bottom-part">
+          <span class="title">{{'editPlant.localization'|translate}}</span> {{selectedPlant.place.roomName}}
+      </div>
+    </div>
+    <div class="row notes">
+      <span class="title">{{'editPlant.notes'|translate}}</span>
+      <div class="image-wrapper icon">
+        <img [src]="pencilIcon"/>
+      </div>
+    </div>
+  </div>
+
+</div>

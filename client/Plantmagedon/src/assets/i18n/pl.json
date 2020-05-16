@@ -1,0 +1,12 @@
+{
+  "editPlant": {
+    "water": "Podlewanie",
+    "spray": "Zraszanie",
+    "fertilization": "Nawożenie",
+    "sunny": "Nasłonecznienie",
+    "localization": "Lokalizacja",
+    "notes": "Notatki"
+  },
+  "oncePerWeek": "Raz w tygodniu"
+}
+
