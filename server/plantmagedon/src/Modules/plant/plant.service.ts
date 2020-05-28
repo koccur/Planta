@@ -34,4 +34,22 @@ export class PlantService {
     const entity = this.plantConverter.toEntity(dto)
     return this.plantRepository.update(id, entity)
   }
+
+  findAllWithInfo(): Promise<Plant[]> {
+    return this.plantRepository.createQueryBuilder("plant")
+      .innerJoinAndSelect("plant.water","water")
+      .innerJoinAndSelect("plant.place","place")
+      .innerJoinAndSelect("plant.fertilization","fertilization")
+      .getMany();
+  }
+
+  findOneWithInfo(id: string): Promise<Plant> {
+    return this.plantRepository.createQueryBuilder("plant")
+      .innerJoinAndSelect("plant.water","water")
+      .innerJoinAndSelect("plant.place","place")
+      .innerJoinAndSelect("plant.fertilization","fertilization")
+      .innerJoinAndSelect("water.spray","spray")
+      .where({id})
+      .getOne();
+  }
 }

@@ -22,7 +22,7 @@ export class WaterService {
 
   findOneWithSprayInfo(id: string):Promise<WaterDTO>{
     return this.waterRepository.createQueryBuilder("water")
-    .innerJoinAndSelect("water.spray","spray").getOne();
+    .innerJoinAndSelect("water.spray","spray").where({id}).getOne();
   }
 
   findAllWithSprayInfo():Promise<WaterDTO[]>{

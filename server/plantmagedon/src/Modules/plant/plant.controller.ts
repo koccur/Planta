@@ -13,9 +13,19 @@ export class PlantController {
     return this.plantService.findAll()
   }
 
+  @Get('/allInfo')
+  getAllWithInfo(): any {
+    return this.plantService.findAllWithInfo();
+  }
+
   @Get('/:id')
   get(@Param() params): any {
     return this.plantService.findOne(params.id);
+  }
+
+  @Get('/allInfo/:id')
+  getWithInfo(@Param() params): any {
+    return this.plantService.findOneWithInfo(params.id);
   }
 
   @Post()
@@ -25,10 +35,11 @@ export class PlantController {
 
   @Put('/:id')
   update(@Param('id') id: string, @Body() plantDTO: PlantDTO): any {
-    return this.plantService.update(id,plantDTO);
+    return this.plantService.update(id, plantDTO);
   }
+
   @Delete('/:id')
-  delete(@Param('id') id:string){
+  delete(@Param('id') id: string) {
     return this.plantService.remove(id);
   }
 
